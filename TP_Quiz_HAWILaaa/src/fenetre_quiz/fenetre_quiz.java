@@ -4,6 +4,9 @@
  */
 package fenetre_quiz;
 
+import java.util.ArrayList;
+import java.awt.EventQueue;
+
 /**
  *
  * @author ADMIN
@@ -14,7 +17,7 @@ public class fenetre_quiz extends javax.swing.JFrame {
     private int indexQuestionCourante = 0;
     private int score = 0;
 
-    public quiz() {
+    public fenetre_quiz() {
         initComponents();
         initQuestion();
         afficherQuestionCourante();
@@ -125,8 +128,18 @@ public class fenetre_quiz extends javax.swing.JFrame {
         });
 
         btnRep3.setText("jButton3");
+        btnRep3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRep3ActionPerformed(evt);
+            }
+        });
 
         btnRep4.setText("jButton4");
+        btnRep4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRep4ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("jLabel2");
 
@@ -143,14 +156,13 @@ public class fenetre_quiz extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnRep1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnRep2)
-                        .addGap(50, 50, 50))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
+                        .addComponent(btnRep4))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnRep3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
-                        .addComponent(btnRep4)
-                        .addGap(59, 59, 59))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRep2)))
+                .addGap(59, 59, 59))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -173,18 +185,14 @@ public class fenetre_quiz extends javax.swing.JFrame {
                 .addComponent(lblFeedback)
                 .addGap(37, 37, 37)
                 .addComponent(lblQuestion)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnRep1)
-                            .addComponent(btnRep2)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnRep4)
-                        .addGap(64, 64, 64)))
-                .addGap(49, 49, 49)
-                .addComponent(btnRep3)
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRep1)
+                    .addComponent(btnRep4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRep3)
+                    .addComponent(btnRep2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -197,23 +205,7 @@ public class fenetre_quiz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRep2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRep2ActionPerformed
-        // TODO add your handling code here:
-        
-        traiterReponse(1);
-    }
 
-    private void btnRep2ActionPerformed(java.awt.event.ActionEvent evt) {
-        traiterReponse(2);
-    }
-
-    private void btnRep3ActionPerformed(java.awt.event.ActionEvent evt) {
-        traiterReponse(3);
-    }
-
-    private void btnRep4ActionPerformed(java.awt.event.ActionEvent evt) {
-        traiterReponse(4);
-    }
-   private void btnSuivantActionPerformed(java.awt.event.ActionEvent evt) {
 
         indexQuestionCourante++;
 
@@ -229,8 +221,16 @@ public class fenetre_quiz extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRep2ActionPerformed
 
     private void btnRep1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRep1ActionPerformed
-        // TODO add your handling code here:
+ traiterReponse(1);        // TODO add your handling code here:
     }//GEN-LAST:event_btnRep1ActionPerformed
+
+    private void btnRep3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRep3ActionPerformed
+ traiterReponse(3);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRep3ActionPerformed
+
+    private void btnRep4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRep4ActionPerformed
+ traiterReponse(4);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRep4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,7 +255,8 @@ public class fenetre_quiz extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        fenetre_quiz.awt.EventQueue.invokeLater(() -> new fenetre_quiz().setVisible(true));
+        java.awt.EventQueue
+.invokeLater(() -> new fenetre_quiz().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -268,4 +269,10 @@ public class fenetre_quiz extends javax.swing.JFrame {
     private javax.swing.JLabel lblFeedback;
     private javax.swing.JLabel lblQuestion;
     // End of variables declaration//GEN-END:variables
+
+    private static class awt {
+
+        public awt() {
+        }
+    }
 }

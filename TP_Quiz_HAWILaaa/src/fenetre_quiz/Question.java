@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+package fenetre_quiz;
 
 /**
  *
  * @author ADMIN
  */
-public class Question {
-
+class Question {
     private String intitule;
     private String proposition1;
     private String proposition2;
@@ -33,5 +33,4 @@ public class Question {
     public int getIndexBonneReponse() { return indexBonneReponse; }
 }
 
-    
 }
