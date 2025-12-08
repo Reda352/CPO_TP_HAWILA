@@ -7,17 +7,43 @@
  *
  * @author ADMIN
  */
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import java.util.logging.Level;
+
 public class Interface extends javax.swing.JFrame {
-    
+   
+    private CadenasJeu jeu;
+   
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Interface.class.getName());
 
     /**
-     * Creates new form Interface
+     * Creates new form Victoire
      */
     public Interface() {
         initComponents();
+        jeu = new CadenasJeu();
+        texte_score.setText(jeu.getTentativesEffectuees() + " sur " + jeu.getMaxTentatives());
+        text_intro.setText("Trouvez le bon code en moins de " + jeu.getMaxTentatives() + " tentatives !");
     }
-
+   
+    private void mettreAJourChiffre(javax.swing.JLabel label, boolean increment) {
+        if (jeu.estPartieTerminee()) {
+            return;
+        }
+       
+        try {
+            int chiffre = Integer.parseInt(label.getText());
+            if (increment) {
+                chiffre = (chiffre + 1) % 10;
+            } else {
+                chiffre = (chiffre - 1 + 10) % 10;
+            }
+            label.setText(String.valueOf(chiffre));
+        } catch (NumberFormatException e) {
+            label.setText("0");
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -64,7 +90,7 @@ public class Interface extends javax.swing.JFrame {
                     up_chiffre_1ActionPerformed(evt);
                 }
             });
-            getContentPane().add(up_chiffre_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 73, -1, -1));
+            getContentPane().add(up_chiffre_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 73, 80, -1));
 
             up_chiffre_2.setText("/\\");
                 up_chiffre_2.addActionListener(new java.awt.event.ActionListener() {
@@ -72,7 +98,7 @@ public class Interface extends javax.swing.JFrame {
                         up_chiffre_2ActionPerformed(evt);
                     }
                 });
-                getContentPane().add(up_chiffre_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 73, -1, -1));
+                getContentPane().add(up_chiffre_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 73, 80, -1));
 
                 up_chiffre_3.setText("/\\");
                     up_chiffre_3.addActionListener(new java.awt.event.ActionListener() {
@@ -80,10 +106,10 @@ public class Interface extends javax.swing.JFrame {
                             up_chiffre_3ActionPerformed(evt);
                         }
                     });
-                    getContentPane().add(up_chiffre_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 73, -1, -1));
+                    getContentPane().add(up_chiffre_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 73, 80, -1));
 
                     up_chiffre_4.setText("/\\");
-                        getContentPane().add(up_chiffre_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 73, -1, -1));
+                        getContentPane().add(up_chiffre_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 73, 80, -1));
 
                         texte_chiffre_0.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
                         texte_chiffre_0.setText("0");
@@ -99,10 +125,10 @@ public class Interface extends javax.swing.JFrame {
 
                         texte_chiffre_3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
                         texte_chiffre_3.setText("0");
-                        getContentPane().add(texte_chiffre_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 111, 27, 54));
+                        getContentPane().add(texte_chiffre_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 27, 54));
 
                         down_chiffre_1.setText("\\/");
-                        getContentPane().add(down_chiffre_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 188, -1, -1));
+                        getContentPane().add(down_chiffre_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 188, 80, -1));
 
                         down_chiffre_2.setText("\\/");
                         down_chiffre_2.addActionListener(new java.awt.event.ActionListener() {
@@ -110,7 +136,7 @@ public class Interface extends javax.swing.JFrame {
                                 down_chiffre_2ActionPerformed(evt);
                             }
                         });
-                        getContentPane().add(down_chiffre_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 188, -1, -1));
+                        getContentPane().add(down_chiffre_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 188, 80, -1));
 
                         down_chiffre_3.setText("\\/");
                         down_chiffre_3.addActionListener(new java.awt.event.ActionListener() {
@@ -118,7 +144,7 @@ public class Interface extends javax.swing.JFrame {
                                 down_chiffre_3ActionPerformed(evt);
                             }
                         });
-                        getContentPane().add(down_chiffre_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 188, -1, -1));
+                        getContentPane().add(down_chiffre_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 80, -1));
 
                         down_chiffre_4.setText("\\/");
                         down_chiffre_4.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +152,7 @@ public class Interface extends javax.swing.JFrame {
                                 down_chiffre_4ActionPerformed(evt);
                             }
                         });
-                        getContentPane().add(down_chiffre_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 188, -1, -1));
+                        getContentPane().add(down_chiffre_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 188, 80, -1));
 
                         bouton_tester.setText("Tester");
                         getContentPane().add(bouton_tester, new org.netbeans.lib.awtextra.AbsoluteConstraints(457, 137, -1, -1));
@@ -174,27 +200,33 @@ public class Interface extends javax.swing.JFrame {
                     }// </editor-fold>//GEN-END:initComponents
 
     private void up_chiffre_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_up_chiffre_1ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here: 
+        mettreAJourChiffre(texte_chiffre_0, true);
     }//GEN-LAST:event_up_chiffre_1ActionPerformed
 
     private void up_chiffre_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_up_chiffre_3ActionPerformed
         // TODO add your handling code here:
+        mettreAJourChiffre(texte_chiffre_2, true);
     }//GEN-LAST:event_up_chiffre_3ActionPerformed
 
     private void down_chiffre_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_down_chiffre_2ActionPerformed
         // TODO add your handling code here:
+        mettreAJourChiffre(texte_chiffre_1, true);
     }//GEN-LAST:event_down_chiffre_2ActionPerformed
 
     private void down_chiffre_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_down_chiffre_4ActionPerformed
         // TODO add your handling code here:
+        mettreAJourChiffre(texte_chiffre_3, true);
     }//GEN-LAST:event_down_chiffre_4ActionPerformed
 
     private void up_chiffre_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_up_chiffre_2ActionPerformed
         // TODO add your handling code here:
+        mettreAJourChiffre(texte_chiffre_1, true);
     }//GEN-LAST:event_up_chiffre_2ActionPerformed
 
     private void down_chiffre_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_down_chiffre_3ActionPerformed
         // TODO add your handling code here:
+        mettreAJourChiffre(texte_chiffre_2, true);
     }//GEN-LAST:event_down_chiffre_3ActionPerformed
 
     private void bouton_recommencerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bouton_recommencerActionPerformed
