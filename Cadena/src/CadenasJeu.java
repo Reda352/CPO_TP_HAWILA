@@ -39,7 +39,6 @@ public class CadenasJeu {
     }
    
     public int[] testerCombinaison(int[] essai) throws IllegalArgumentException {
-        // Validation basique
         if (essai == null || essai.length != LONGUEUR_CODE) {
             throw new IllegalArgumentException("L'essai doit être un tableau de " + LONGUEUR_CODE + " chiffres.");
         }
