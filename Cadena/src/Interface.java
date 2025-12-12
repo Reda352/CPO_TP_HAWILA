@@ -76,6 +76,7 @@ public class Interface extends javax.swing.JFrame {
         texte_nb_chiffres_bas = new javax.swing.JLabel();
         texte_tentatives = new javax.swing.JLabel();
         texte_score = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -179,6 +180,7 @@ public class Interface extends javax.swing.JFrame {
                         getContentPane().add(bouton_tester, new org.netbeans.lib.awtextra.AbsoluteConstraints(457, 137, -1, -1));
 
                         texte_lbl_chiffres_exacts.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+                        texte_lbl_chiffres_exacts.setForeground(new java.awt.Color(255, 255, 255));
                         texte_lbl_chiffres_exacts.setText("nombre de chiffres exacts :");
                         getContentPane().add(texte_lbl_chiffres_exacts, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 229, -1, -1));
 
@@ -188,7 +190,8 @@ public class Interface extends javax.swing.JFrame {
                         getContentPane().add(texte_nb_chiffres_exacts, new org.netbeans.lib.awtextra.AbsoluteConstraints(209, 229, -1, -1));
 
                         texte_lbl_chiffres_bas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-                        texte_lbl_chiffres_bas.setText("nombre de chiffre plus bas :");
+                        texte_lbl_chiffres_bas.setForeground(new java.awt.Color(255, 255, 255));
+                        texte_lbl_chiffres_bas.setText("nombre de chiffre plus hauts :");
                         getContentPane().add(texte_lbl_chiffres_bas, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 299, -1, -1));
 
                         bouton_recommencer.setText("recommencez");
@@ -200,19 +203,21 @@ public class Interface extends javax.swing.JFrame {
                         getContentPane().add(bouton_recommencer, new org.netbeans.lib.awtextra.AbsoluteConstraints(435, 302, -1, -1));
 
                         texte_lbl_chiffres_haut.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-                        texte_lbl_chiffres_haut.setText("nombre de chiffres plus hauts :");
+                        texte_lbl_chiffres_haut.setForeground(new java.awt.Color(255, 255, 255));
+                        texte_lbl_chiffres_haut.setText("nombre de chiffres plus bas :");
                         getContentPane().add(texte_lbl_chiffres_haut, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 267, -1, -1));
 
                         texte_nb_chiffres_haut.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
                         texte_nb_chiffres_haut.setForeground(new java.awt.Color(0, 153, 153));
                         texte_nb_chiffres_haut.setText("0");
-                        getContentPane().add(texte_nb_chiffres_haut, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 267, -1, -1));
+                        getContentPane().add(texte_nb_chiffres_haut, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
 
                         texte_nb_chiffres_bas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
                         texte_nb_chiffres_bas.setForeground(new java.awt.Color(255, 0, 0));
                         texte_nb_chiffres_bas.setText("0");
-                        getContentPane().add(texte_nb_chiffres_bas, new org.netbeans.lib.awtextra.AbsoluteConstraints(221, 299, -1, -1));
+                        getContentPane().add(texte_nb_chiffres_bas, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
 
+                        texte_tentatives.setForeground(new java.awt.Color(255, 255, 255));
                         texte_tentatives.setText("Tentatives : ");
                         getContentPane().add(texte_tentatives, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 232, -1, -1));
 
@@ -220,6 +225,10 @@ public class Interface extends javax.swing.JFrame {
                         texte_score.setForeground(new java.awt.Color(0, 255, 0));
                         texte_score.setText("0 Sur 5");
                         getContentPane().add(texte_score, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 255, -1, 30));
+
+                        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/coucher de soleil.jpg"))); // NOI18N
+                        jLabel2.setText("jLabel2");
+                        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 330));
 
                         pack();
                     }// </editor-fold>//GEN-END:initComponents
@@ -350,6 +359,7 @@ if (jeu.estPartieTerminee()) {
     private javax.swing.JButton down_chiffre_2;
     private javax.swing.JButton down_chiffre_3;
     private javax.swing.JButton down_chiffre_4;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel texte_chiffre_0;
     private javax.swing.JLabel texte_chiffre_1;
     private javax.swing.JLabel texte_chiffre_2;
